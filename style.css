@@ -1,0 +1,83 @@
+body {
+    font-family: system-ui;
+    background: #cad0db;
+    color: darkgray;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    height: 95vh;
+    width: 95vw;
+  }
+
+  #pagetext{
+    font-size: 6vw;
+    color: darkgray;
+  }
+
+  #labels{
+    font-size: 2vw;
+    color: black;
+  }
+  
+  .add_button {
+    background-color:white;
+    height:10vh;
+    border: 2px dotted black;
+    border-radius: 5px;
+    flex-grow: 1;
+  }
+  
+  #container {
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-content:center;
+    height: 95vh;
+    width: 95vw;
+  }
+  
+  #box{
+    font-size: 15px;
+    background-color:white;
+    height:10vh;
+    width:10vw;
+    border: 0px;
+    border-radius:50%;
+  }
+  
+  .add_button:hover {
+    background-color:gray;
+  }
+
+#menu_area{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#context-menu{
+  position:fixed;
+  z-index:100;
+  width:150px;
+  background:darkgray;
+  border-radius: 5px;
+  border: 3px solid black;
+  display: none;
+}
+
+#context-menu .item{
+  padding:8px 10px;
+  font-size:3vw;
+  color:black;
+  cursor:pointer;
+  border-radius:inherit;
+}
+
+#context-menu .item:hover{
+  background:gray;
+}
+
+#content-menu.visible{
+  display:block;
+}

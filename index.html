@@ -1,0 +1,32 @@
+<!---->
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class = "menu_area">
+            <button class="add_button" id="add_button" onclick="add(1, 'div')">DIV</button>
+            <button class="add_button" id="add_button" onclick="add(1, 'p')">P</button>
+            <button class="add_button" id="add_button" onclick="add(1, 'h1')">H1</button>
+            <label id="labels" for="bgcolour_choice">Item Colour</label>
+            <input type="color" id="bgcolour_choice" value="#000000">
+            <label id="labels" for="txtcolour_choice">Text Colour</label>
+            <input type="color" id="txtcolour_choice" value="#ffffff">
+            <label id="labels" for="txtchoice">Content</label>
+            <input type="text" id="txtchoice" value="Your text here...">
+            <input type="range" id="textsize" name="Text Size" min="1" max="11">
+            <label for="textsize">Text Size</label>
+        </div>
+
+        <div class = "space">
+            <p id="pagetext">Click on an object and press ALT to remove it.</p>
+            <!-- <p id="pagetext">Right Click on an object for the menu.</p> -->
+            <div id="container"></div>
+        </div>
+
+        <div id="context-menu">
+            <div class="item">Edit Text</div>
+        </div>
+    </body>
+    <script src="app.js"></script>
+</html>
