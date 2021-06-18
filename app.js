@@ -36,24 +36,27 @@ function add(x, type) {
         
         // Create a new ball item with random positions, speeds and id 
         let new_part = document.createElement(type);
-    
-        new_part.innerHTML = document.getElementById("txtchoice").value;
         new_part.id = num.toString();
         new_part.className = type;
-        new_part.style.backgroundColor = document.getElementById("bgcolour_choice").value;
-        new_part.style.color = document.getElementById("txtcolour_choice").value;
         new_part.style.position = "absolute";
-        new_part.style.fontSize = document.getElementById("textsize").value + "vw";
         new_part.style.top = "0px";
         new_part.style.left = "0px";
         new_part.style.borderRadius = "5%";
-        // Click the element to delete it - need to replace this with a menu? Buttons per item...
-        /*new_part.addEventListener("click", e => {
+        if (type === "img") {
+            // details for image element here
+            new_part.src = document.getElementById("txtchoice").value;
+        }
+        else {
+            // other specific changes here
+            new_part.innerHTML = document.getElementById("txtchoice").value;
+            new_part.style.backgroundColor = document.getElementById("bgcolour_choice").value;
+            new_part.style.color = document.getElementById("txtcolour_choice").value;
+            new_part.style.fontSize = document.getElementById("textsize").value + "vw";
+        }
 
-        }, true);  */
         // Moving the element on click
         new_part.addEventListener("mousedown", e => {
-            //if (e.target.nodeName === type){
+            // Right click to open the menu - not working :(
             if (e.button === 2){
                 //document.getElementById(e.target.id).remove();
                 console.log("Open Right Click Menu");
@@ -64,6 +67,7 @@ function add(x, type) {
                 
                 context_menu.classList.add("visible");
             }
+            // Other click to select the object and ready for moving
             else {
                 moving_part = document.getElementById(e.target.id);
                 //mousepos.offsetLeft = part.offsetLeft - e.clientX;
