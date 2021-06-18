@@ -2,7 +2,6 @@
 // Counter for unique IDs
 var num = 0;
 // Set up for choosing random numbers
-const colour_val= ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'];
 var context_menu = document.getElementById("context-menu");
 var moving = false;
 var moving_part;
@@ -39,8 +38,8 @@ function add(x, type) {
         new_part.id = num.toString();
         new_part.className = type;
         new_part.style.position = "absolute";
-        new_part.style.top = "0px";
-        new_part.style.left = "0px";
+        new_part.style.top = (div_height / 2) + "px";
+        new_part.style.left = (div_width / 2) + "px";
         new_part.style.borderRadius = "5%";
         if (type === "img") {
             // details for image element here
@@ -60,18 +59,14 @@ function add(x, type) {
             if (e.button === 2){
                 //document.getElementById(e.target.id).remove();
                 console.log("Open Right Click Menu");
-                const {
-                    clientX: mouseX,
-                    clientY: mouseY
-                } = e;
                 
                 context_menu.classList.add("visible");
             }
             // Other click to select the object and ready for moving
             else {
                 moving_part = document.getElementById(e.target.id);
-                //mousepos.offsetLeft = part.offsetLeft - e.clientX;
-                //mousepos.offsetTop = part.offsetTop - e.clientY;
+                mousepos.offsetLeft = moving_part.offsetLeft - e.clientX;
+                mousepos.offsetTop = moving_part.offsetTop - e.clientY;
                 moving = true;                
             }
 
@@ -94,8 +89,8 @@ document.addEventListener("mousemove", function(e) {
         //index = part_list.findIndex(part => part.get_id === e.target.id);
         mousepos.x = e.clientX;
         mousepos.y = e.clientY;
-        moving_part.style.left = (mousepos.x + mousepos.offsetx) + 'px';
-        moving_part.style.top = (mousepos.y + mousepos.offsety) + 'px';
+        moving_part.style.left = (mousepos.x - mousepos.offsetx) + 'px';
+        moving_part.style.top = (mousepos.y - mousepos.offsety) + 'px';
     }
     //}
 }, true);
